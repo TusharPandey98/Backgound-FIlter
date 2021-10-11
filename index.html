@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Backgroud-Filter</title>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="img-box">
+            <img src="/images/transparent.png" alt="transparent" width="100%">
+
+            <div class="img-wrap">
+                <img src="/images/original.jpg" alt="original" id="originalImage">
+            </div>
+
+            <span id = "line">
+                <img src="images/arrow.png" alt="arrow" class="arrow">
+            </span>
+        </div>
+<script>
+    var imgBox = document.querySelector(".img-box");
+    var imgWrap = document.querySelector(".img-wrap");
+    var originalImg = document.getElementById("originalImage");
+    var arrow = document.getElementById("line");
+
+    originalImg.style.width = imgBox.offsetWidth + 'px';
+    var leftSpace = imgBox.offsetLeft;
+
+    imgBox.onmousemove = function(e) {
+        var boxWidth = (e.pageX - leftSpace) + 'px';
+        imgWrap.style.width = boxWidth;
+        arrow.style.left = boxWidth;
+        console.log(boxWidth);
+    }
+</script>
+
+</body>
+
+</html>
